@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 async function handler(req, res) {
   if (process.env.MOCK_MODE === "1" || process.env.MOCK_MODE === "true") {
@@ -115,4 +115,4 @@ async function handler(req, res) {
   }
 }
 
-module.exports = handler;
+export default handler;
