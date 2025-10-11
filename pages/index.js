@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
 export default function NICUFinder() {
-  const [searchInput, setSearchInput] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [stateInput, setStateInput] = useState('');
+  const [location, setLocation] = useState('');
   const [radius, setRadius] = useState('60');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,15 +15,7 @@ export default function NICUFinder() {
     setError('');
     setResults([]);
     try {
-      let location = '';
-      if (zipCode) {
-        location = zipCode;
-      } else if (searchInput && stateInput) {
-        location = searchInput + ', ' + stateInput;
-      } else if (searchInput) {
-        location = searchInput;
-      }
-      if (!location) {
+      if (!location || !location.trim()) {
         setError('Please enter a city/state or ZIP code');
         setLoading(false);
         return;
@@ -102,37 +92,16 @@ export default function NICUFinder() {
               ),
               React.createElement('h2', { className: 'text-2xl font-semibold', style: { color: rubyRed } }, 'Search NICU Database')
             ),
-            React.createElement('div', { className: 'grid grid-cols-3 gap-6 mb-6' },
-              React.createElement('div', {},
-                React.createElement('label', { className: 'block text-sm font-medium mb-2', style: { color: darkTeal } }, 'City'),
-                React.createElement('input', {
-                  type: 'text',
-                  value: searchInput,
-                  onChange: (e) => setSearchInput(e.target.value),
-                  placeholder: 'e.g., New York',
-                  className: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2'
-                })
-              ),
-              React.createElement('div', {},
-                React.createElement('label', { className: 'block text-sm font-medium mb-2', style: { color: darkTeal } }, 'State'),
-                React.createElement('input', {
-                  type: 'text',
-                  value: stateInput,
-                  onChange: (e) => setStateInput(e.target.value),
-                  placeholder: 'e.g., NY',
-                  className: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2'
-                })
-              ),
-              React.createElement('div', {},
-                React.createElement('label', { className: 'block text-sm font-medium mb-2', style: { color: darkTeal } }, 'ZIP Code'),
-                React.createElement('input', {
-                  type: 'text',
-                  value: zipCode,
-                  onChange: (e) => setZipCode(e.target.value),
-                  placeholder: 'e.g., 10001',
-                  className: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2'
-                })
-              )
+            React.createElement('div', { className: 'mb-6' },
+              React.createElement('label', { className: 'block text-sm font-medium mb-2', style: { color: darkTeal } }, 'Enter City/State or ZIP Code'),
+              React.createElement('input', {
+                type: 'text',
+                value: location,
+                onChange: (e) => setLocation(e.target.value),
+                placeholder: 'e.g., New York, NY or 10001',
+                className: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2',
+                onKeyPress: (e) => { if (e.key === 'Enter') handleSearch(); }
+              })
             ),
             React.createElement('div', { className: 'mb-6' },
               React.createElement('label', { className: 'block text-sm font-medium mb-2', style: { color: darkTeal } }, 'Search Radius'),
@@ -266,7 +235,7 @@ export default function NICUFinder() {
               }, '1'),
               React.createElement('div', {},
                 React.createElement('h3', { className: 'font-semibold mb-1', style: { color: darkTeal } }, 'Enter Your Location'),
-                React.createElement('p', {}, 'Type in your city and state, or simply enter your ZIP code.')
+                React.createElement('p', {}, 'Type in a city and state (e.g., "Boston, MA") or simply enter a ZIP code (e.g., "02101").')
               )
             ),
             React.createElement('div', { className: 'flex gap-4' },
@@ -276,7 +245,7 @@ export default function NICUFinder() {
               }, '2'),
               React.createElement('div', {},
                 React.createElement('h3', { className: 'font-semibold mb-1', style: { color: darkTeal } }, 'Select Search Radius'),
-                React.createElement('p', {}, 'Choose how far you want to search (20, 40, 60, or 100 miles).')
+                React.createElement('p', {}, 'Choose how far you want to search (20, 25, 40, 60, or 100 miles).')
               )
             ),
             React.createElement('div', { className: 'flex gap-4' },
