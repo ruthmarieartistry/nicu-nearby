@@ -117,16 +117,22 @@ async function handler(req, res) {
             // If no match yet and we have a website, try to fetch basic website info
             if (!levelMatch && details.website) {
               try {
-                const websiteResp = await axios.get(details.website, {
-                  timeout: 3000,
-                  maxRedirects: 3,
-                  headers: { 'User-Agent': 'Mozilla/5.0' }
+                // Clean the URL - remove UTM parameters that might cause issues
+                const cleanUrl = details.website.split('?')[0];
+                const websiteResp = await axios.get(cleanUrl, {
+                  timeout: 5000,
+                  maxRedirects: 5,
+                  headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                  },
+                  validateStatus: (status) => status < 500 // Accept redirects
                 });
-                const websiteText = String(websiteResp.data || '').substring(0, 5000); // Only check first 5000 chars
+                const websiteText = String(websiteResp.data || '').substring(0, 10000); // Check first 10000 chars
                 levelMatch = websiteText.match(/(?:NICU\s*)?(?:Level|Lvl|LVL)[\s:-]*(IV|III|II|I|4|3|2|1)\b/i) ||
                             websiteText.match(/\b(IV|III|II|I|4|3|2|1)[\s-]*(?:Level|lvl)\b/i);
               } catch (websiteErr) {
                 // Ignore website fetch errors
+                console.log('Website fetch error for', details.website, websiteErr.message);
               }
             }
 
