@@ -45,38 +45,38 @@ export default function NICUFinder() {
   return React.createElement('div', { className: 'min-h-screen bg-gray-50' },
     React.createElement('div', { className: 'max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12' },
       React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8' },
-        React.createElement('aside', { className: 'md:col-span-4 space-y-4 md:space-y-6 lg:space-y-8' },
+        React.createElement('aside', { className: 'md:col-span-3 space-y-4 md:space-y-6 lg:space-y-8' },
           React.createElement('div', { className: 'hidden md:block text-center' },
-            React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-3 md:mb-4' }, 'CREATED FOR'),
-            React.createElement('div', { className: 'bg-white rounded-xl p-4 md:p-6 border border-gray-200' },
-              React.createElement('img', { src: '/alcea-logo.png', alt: 'ALCEA Logo', className: 'w-full h-auto mb-2' }),
-              React.createElement('p', { className: 'text-sm font-medium text-gray-500' }, '2025')
+            React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-2' }, 'CREATED FOR'),
+            React.createElement('div', { className: 'bg-white rounded-xl p-3 border border-gray-200' },
+              React.createElement('img', { src: '/alcea-logo.png', alt: 'ALCEA Logo', className: 'w-full h-auto mb-1' }),
+              React.createElement('p', { className: 'text-xs font-medium text-gray-500' }, '2025')
             )
           ),
-          React.createElement('div', { className: 'space-y-2 md:space-y-3' },
+          React.createElement('div', { className: 'space-y-2' },
             React.createElement('button', {
               onClick: () => setShowHowToUse(true),
-              className: 'w-full text-left px-4 py-3 md:px-6 md:py-4 rounded-xl text-white font-semibold flex items-center gap-3 transition-all hover:opacity-90 text-sm md:text-base',
+              className: 'w-full text-left px-3 py-2 rounded-xl text-white font-semibold flex items-center gap-2 transition-all hover:opacity-90 text-xs',
               style: { backgroundColor: goldBrown }
             },
-              React.createElement('div', { className: 'w-6 h-6 md:w-7 md:h-7 rounded-full border-2 border-white flex items-center justify-center text-base md:text-lg font-bold flex-shrink-0' }, '?'),
+              React.createElement('div', { className: 'w-5 h-5 rounded-full border-2 border-white flex items-center justify-center text-sm font-bold flex-shrink-0' }, '?'),
               React.createElement('span', {}, 'How To Use')
             ),
             React.createElement('button', {
               onClick: () => setShowMethod(true),
-              className: 'w-full text-left px-4 py-3 md:px-6 md:py-4 rounded-xl text-white font-semibold flex items-center gap-3 transition-all hover:opacity-90 text-sm md:text-base',
+              className: 'w-full text-left px-3 py-2 rounded-xl text-white font-semibold flex items-center gap-2 transition-all hover:opacity-90 text-xs',
               style: { backgroundColor: mustardYellow }
             },
-              React.createElement('svg', { className: 'w-5 h-5 md:w-6 md:h-6 flex-shrink-0', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' },
+              React.createElement('svg', { className: 'w-4 h-4 flex-shrink-0', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' },
                 React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' })
               ),
-              React.createElement('span', {}, 'Method & Reliability')
+              React.createElement('span', {}, 'Method')
             )
           )
         ),
-        React.createElement('main', { className: 'md:col-span-8' },
+        React.createElement('main', { className: 'md:col-span-9' },
           React.createElement('div', { className: 'mb-4 md:mb-6' },
-            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-16 sm:h-20 md:h-24 w-auto mb-3 sm:mb-4' }),
+            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-16 sm:h-20 md:h-32 lg:h-40 w-auto mb-3 sm:mb-4' }),
             React.createElement('p', { className: 'text-xs text-gray-500 border-b border-gray-300 pb-3 mb-4 md:hidden' }, 'Made for Alcea Surrogacy, © RME 2025'),
             React.createElement('p', { className: 'text-base sm:text-lg text-gray-600 hidden md:block' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
           ),
