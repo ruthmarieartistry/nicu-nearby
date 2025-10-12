@@ -76,7 +76,7 @@ export default function NICUFinder() {
         ),
         React.createElement('main', { className: 'md:col-span-8' },
           React.createElement('div', { className: 'mb-6 sm:mb-8' },
-            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-12 sm:h-16 w-auto mb-3 sm:mb-4' }),
+            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-16 sm:h-20 md:h-24 w-auto mb-3 sm:mb-4' }),
             React.createElement('p', { className: 'text-base sm:text-lg text-gray-600' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
           ),
           React.createElement('div', { className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 lg:p-8 mb-6 md:mb-8' },
