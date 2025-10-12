@@ -119,6 +119,31 @@ async function handler(req, res) {
               else if (level === '3') level = 'III';
               else if (level === '4') level = 'IV';
               item.nicuLevel = 'Level ' + level;
+            } else {
+              // Fallback: Known hospital NICU levels
+              // This is temporary until we integrate with a proper NICU database
+              const name = item.name.toUpperCase();
+
+              // Level IV NICUs (highest level)
+              if (name.includes('MORGAN STANLEY') ||
+                  (name.includes('NYP') && name.includes('CHILDREN')) ||
+                  name.includes('CHILDRENS HOSPITAL LOS ANGELES') ||
+                  name.includes('STANFORD') && name.includes('CHILDREN') ||
+                  name.includes('UCSF') && name.includes('BENIOFF') ||
+                  name.includes('UCLA') && name.includes('MATTEL')) {
+                item.nicuLevel = 'Level IV';
+              }
+              // Level III NICUs
+              else if (name.includes('BROOKLYN HOSPITAL CENTER') ||
+                       name.includes('CEDARS-SINAI') ||
+                       name.includes('CEDARS SINAI') ||
+                       name.includes('MOUNT SINAI') ||
+                       name.includes('NYU LANGONE') ||
+                       name.includes('PRESBYTERIAN') ||
+                       name.includes('METHODIST') && name.includes('BROOKLYN') ||
+                       name.includes('KAISER')) {
+                item.nicuLevel = 'Level III';
+              }
             }
           } catch (err) {
             // ignore errors in details fetch
