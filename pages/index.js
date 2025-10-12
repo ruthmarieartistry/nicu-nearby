@@ -76,7 +76,7 @@ export default function NICUFinder() {
         ),
         React.createElement('main', { className: 'md:col-span-9' },
           React.createElement('div', { className: 'mb-4 md:mb-6' },
-            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-16 sm:h-20 md:h-32 lg:h-40 w-auto mb-3 sm:mb-4' }),
+            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-24 sm:h-28 md:h-32 lg:h-40 w-auto mb-3 sm:mb-4' }),
             React.createElement('p', { className: 'text-xs text-gray-500 border-b border-gray-300 pb-3 mb-4 md:hidden' }, 'Made for Alcea Surrogacy, © RME 2025'),
             React.createElement('p', { className: 'text-base sm:text-lg text-gray-600 hidden md:block' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
           ),
