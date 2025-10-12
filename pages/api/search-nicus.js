@@ -106,36 +106,11 @@ async function handler(req, res) {
               details.name || '',
               item.address || '',
               details.formatted_address || '',
-              (details.editorial_summary && details.editorial_summary.overview) || '',
-              (details.types || []).join(' ')
+              (details.editorial_summary && details.editorial_summary.overview) || ''
             ].join(' ');
 
-            // Look for Level IV, III, II, I or numeric levels (broader patterns)
-            let levelMatch = textToScan.match(/(?:NICU\s*)?(?:Level|Lvl|LVL)[\s:-]*(IV|III|II|I|4|3|2|1)\b/i) ||
-                             textToScan.match(/\b(IV|III|II|I|4|3|2|1)[\s-]*(?:Level|lvl)\b/i);
-
-            // If no match yet and we have a website, try to fetch basic website info
-            if (!levelMatch && details.website) {
-              try {
-                // Clean the URL - remove UTM parameters that might cause issues
-                const cleanUrl = details.website.split('?')[0];
-                const websiteResp = await axios.get(cleanUrl, {
-                  timeout: 5000,
-                  maxRedirects: 5,
-                  headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-                  },
-                  validateStatus: (status) => status < 500 // Accept redirects
-                });
-                const websiteText = String(websiteResp.data || '').substring(0, 10000); // Check first 10000 chars
-                levelMatch = websiteText.match(/(?:NICU\s*)?(?:Level|Lvl|LVL)[\s:-]*(IV|III|II|I|4|3|2|1)\b/i) ||
-                            websiteText.match(/\b(IV|III|II|I|4|3|2|1)[\s-]*(?:Level|lvl)\b/i);
-              } catch (websiteErr) {
-                // Ignore website fetch errors
-                console.log('Website fetch error for', details.website, websiteErr.message);
-              }
-            }
-
+            // Look for Level IV, III, II, I or numeric levels
+            const levelMatch = textToScan.match(/(?:NICU\s*)?Level\s*(IV|III|II|I|4|3|2|1)(?:\s|,|\.|\)|$)/i);
             if (levelMatch) {
               let level = levelMatch[1].toUpperCase();
               // Convert numeric to Roman numerals for consistency
