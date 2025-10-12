@@ -106,12 +106,30 @@ async function handler(req, res) {
               details.name || '',
               item.address || '',
               details.formatted_address || '',
-              (details.editorial_summary && details.editorial_summary.overview) || ''
+              (details.editorial_summary && details.editorial_summary.overview) || '',
+              (details.types || []).join(' ')
             ].join(' ');
 
             // Look for Level IV, III, II, I or numeric levels (broader patterns)
-            const levelMatch = textToScan.match(/(?:NICU\s*)?(?:Level|Lvl|LVL)[\s:-]*(IV|III|II|I|4|3|2|1)\b/i) ||
+            let levelMatch = textToScan.match(/(?:NICU\s*)?(?:Level|Lvl|LVL)[\s:-]*(IV|III|II|I|4|3|2|1)\b/i) ||
                              textToScan.match(/\b(IV|III|II|I|4|3|2|1)[\s-]*(?:Level|lvl)\b/i);
+
+            // If no match yet and we have a website, try to fetch basic website info
+            if (!levelMatch && details.website) {
+              try {
+                const websiteResp = await axios.get(details.website, {
+                  timeout: 3000,
+                  maxRedirects: 3,
+                  headers: { 'User-Agent': 'Mozilla/5.0' }
+                });
+                const websiteText = String(websiteResp.data || '').substring(0, 5000); // Only check first 5000 chars
+                levelMatch = websiteText.match(/(?:NICU\s*)?(?:Level|Lvl|LVL)[\s:-]*(IV|III|II|I|4|3|2|1)\b/i) ||
+                            websiteText.match(/\b(IV|III|II|I|4|3|2|1)[\s-]*(?:Level|lvl)\b/i);
+              } catch (websiteErr) {
+                // Ignore website fetch errors
+              }
+            }
+
             if (levelMatch) {
               let level = levelMatch[1].toUpperCase();
               // Convert numeric to Roman numerals for consistency
