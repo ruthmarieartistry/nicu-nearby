@@ -53,7 +53,7 @@ export default function NICUFinder() {
               React.createElement('p', { className: 'text-xs font-medium text-gray-500' }, '© RME 2025')
             )
           ),
-          React.createElement('div', { className: 'space-y-2' },
+          React.createElement('div', { className: 'hidden md:block space-y-2' },
             React.createElement('button', {
               onClick: () => setShowHowToUse(true),
               className: 'w-full text-left px-3 py-2 rounded-xl text-white font-semibold flex items-center gap-2 transition-all hover:opacity-90 text-xs',
