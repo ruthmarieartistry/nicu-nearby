@@ -109,8 +109,9 @@ async function handler(req, res) {
               (details.editorial_summary && details.editorial_summary.overview) || ''
             ].join(' ');
 
-            // Look for Level IV, III, II, I or numeric levels
-            const levelMatch = textToScan.match(/(?:NICU\s*)?Level\s*(IV|III|II|I|4|3|2|1)(?:\s|,|\.|\)|$)/i);
+            // Look for Level IV, III, II, I or numeric levels (broader patterns)
+            const levelMatch = textToScan.match(/(?:NICU\s*)?(?:Level|Lvl|LVL)[\s:-]*(IV|III|II|I|4|3|2|1)\b/i) ||
+                             textToScan.match(/\b(IV|III|II|I|4|3|2|1)[\s-]*(?:Level|lvl)\b/i);
             if (levelMatch) {
               let level = levelMatch[1].toUpperCase();
               // Convert numeric to Roman numerals for consistency
