@@ -46,11 +46,11 @@ export default function NICUFinder() {
     React.createElement('div', { className: 'max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12' },
       React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8' },
         React.createElement('aside', { className: 'md:col-span-3 space-y-4 md:space-y-6 lg:space-y-8' },
-          React.createElement('div', { className: 'hidden md:block text-center' },
-            React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-2' }, 'CREATED FOR'),
-            React.createElement('div', { className: 'bg-white rounded-xl p-3 border border-gray-200' },
-              React.createElement('img', { src: '/alcea-logo.png', alt: 'ALCEA Logo', className: 'w-full h-auto mb-1' }),
-              React.createElement('p', { className: 'text-xs font-medium text-gray-500' }, '2025')
+          React.createElement('div', { className: 'hidden md:block' },
+            React.createElement('div', { className: 'bg-white rounded-xl p-3 border border-gray-200 text-center' },
+              React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-2' }, 'CREATED FOR'),
+              React.createElement('img', { src: '/alcea-logo.png', alt: 'ALCEA Logo', className: 'w-full h-auto mb-2' }),
+              React.createElement('p', { className: 'text-xs font-medium text-gray-500' }, '© RME 2025')
             )
           ),
           React.createElement('div', { className: 'space-y-2' },
