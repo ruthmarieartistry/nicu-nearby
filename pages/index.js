@@ -43,12 +43,12 @@ export default function NICUFinder() {
   const darkTeal = '#005567';
 
   return React.createElement('div', { className: 'min-h-screen bg-gray-50' },
-    React.createElement('header', { className: 'bg-white border-b border-gray-200 py-4 px-6' },
+    React.createElement('header', { className: 'bg-white border-b border-gray-200 py-4 px-4 sm:px-6' },
       React.createElement('div', { className: 'max-w-7xl mx-auto' })
     ),
-    React.createElement('div', { className: 'max-w-7xl mx-auto px-6 py-12' },
-      React.createElement('div', { className: 'grid grid-cols-12 gap-8' },
-        React.createElement('aside', { className: 'col-span-4 space-y-8' },
+    React.createElement('div', { className: 'max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-12' },
+      React.createElement('div', { className: 'grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8' },
+        React.createElement('aside', { className: 'lg:col-span-4 space-y-6 lg:space-y-8' },
           React.createElement('div', { className: 'text-center' },
             React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-4' }, 'CREATED FOR'),
             React.createElement('div', { className: 'bg-white rounded-xl p-6 border border-gray-200' },
@@ -77,20 +77,20 @@ export default function NICUFinder() {
             )
           )
         ),
-        React.createElement('main', { className: 'col-span-8' },
-          React.createElement('div', { className: 'mb-8' },
-            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-16 w-auto mb-4' }),
-            React.createElement('p', { className: 'text-lg text-gray-600' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
+        React.createElement('main', { className: 'lg:col-span-8' },
+          React.createElement('div', { className: 'mb-6 sm:mb-8' },
+            React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-12 sm:h-16 w-auto mb-3 sm:mb-4' }),
+            React.createElement('p', { className: 'text-base sm:text-lg text-gray-600' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
           ),
-          React.createElement('div', { className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8' },
-            React.createElement('div', { className: 'flex items-center gap-3 mb-6' },
-              React.createElement('div', { className: 'w-12 h-12 rounded-xl flex items-center justify-center', style: { backgroundColor: rubyRed + '20' } },
-                React.createElement('svg', { className: 'w-6 h-6', style: { color: rubyRed }, fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' },
+          React.createElement('div', { className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8' },
+            React.createElement('div', { className: 'flex items-center gap-3 mb-4 sm:mb-6' },
+              React.createElement('div', { className: 'w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0', style: { backgroundColor: rubyRed + '20' } },
+                React.createElement('svg', { className: 'w-5 h-5 sm:w-6 sm:h-6', style: { color: rubyRed }, fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' },
                   React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' }),
                   React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M15 11a3 3 0 11-6 0 3 3 0 016 0z' })
                 )
               ),
-              React.createElement('h2', { className: 'text-2xl font-semibold', style: { color: rubyRed } }, 'Search NICU Database')
+              React.createElement('h2', { className: 'text-xl sm:text-2xl font-semibold', style: { color: rubyRed } }, 'Search NICU Database')
             ),
             React.createElement('div', { className: 'mb-6' },
               React.createElement('label', { className: 'block text-sm font-medium mb-2', style: { color: darkTeal } }, 'Enter City/State or ZIP Code'),
@@ -130,7 +130,7 @@ export default function NICUFinder() {
             React.createElement('button', {
               onClick: handleSearch,
               disabled: loading,
-              className: 'w-full py-4 text-white rounded-lg font-semibold text-lg flex items-center justify-center gap-3 transition-all hover:opacity-90 disabled:opacity-50',
+              className: 'w-full py-3 sm:py-4 text-white rounded-lg font-semibold text-base sm:text-lg flex items-center justify-center gap-2 sm:gap-3 transition-all hover:opacity-90 disabled:opacity-50',
               style: { backgroundColor: darkGreen }
             },
               loading ? 
@@ -149,24 +149,24 @@ export default function NICUFinder() {
               React.createElement('p', { style: { color: rubyRed } }, error)
             )
           ),
-          results.length > 0 && React.createElement('div', { className: 'space-y-4' },
-            React.createElement('h2', { className: 'text-2xl font-semibold mb-4', style: { color: darkTeal } },
+          results.length > 0 && React.createElement('div', { className: 'space-y-3 sm:space-y-4' },
+            React.createElement('h2', { className: 'text-xl sm:text-2xl font-semibold mb-3 sm:mb-4', style: { color: darkTeal } },
               'Found ' + results.length + ' NICU facilities within ' + radius + ' miles'
             ),
             results.map((nicu, index) =>
               React.createElement('div', {
                 key: index,
-                className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow'
+                className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 hover:shadow-md transition-shadow'
               },
-                React.createElement('div', { className: 'flex items-start justify-between mb-3' },
-                  React.createElement('h3', { className: 'text-xl font-semibold', style: { color: darkTeal } }, nicu.name),
+                React.createElement('div', { className: 'flex items-start justify-between gap-3 mb-3' },
+                  React.createElement('h3', { className: 'text-lg sm:text-xl font-semibold flex-1', style: { color: darkTeal } }, nicu.name),
                   React.createElement('span', {
-                    className: 'px-3 py-1 rounded-full text-sm font-medium',
+                    className: 'px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap flex-shrink-0',
                     style: { backgroundColor: mustardYellow + '20', color: goldBrown }
-                  }, nicu.distance + ' miles')
+                  }, nicu.distance + ' mi')
                 ),
-                React.createElement('p', { className: 'text-gray-600 mb-4' }, nicu.address),
-                React.createElement('div', { className: 'flex items-center gap-6 text-sm flex-wrap' },
+                React.createElement('p', { className: 'text-sm sm:text-base text-gray-600 mb-3 sm:mb-4' }, nicu.address),
+                React.createElement('div', { className: 'flex items-center gap-4 sm:gap-6 text-xs sm:text-sm flex-wrap' },
                   nicu.phone && React.createElement('div', { className: 'flex items-center gap-2 text-gray-600' },
                     React.createElement('svg', { className: 'w-4 h-4', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' },
                       React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' })
@@ -215,18 +215,18 @@ export default function NICUFinder() {
       onClick: () => setShowHowToUse(false)
     },
       React.createElement('div', {
-        className: 'bg-white rounded-2xl max-w-2xl w-full max-h-screen overflow-y-auto p-8',
+        className: 'bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8',
         onClick: (e) => e.stopPropagation()
       },
-        React.createElement('div', { className: 'flex items-center justify-between mb-6' },
-          React.createElement('h2', { className: 'text-3xl font-bold', style: { color: goldBrown } }, 'How To Use'),
+        React.createElement('div', { className: 'flex items-center justify-between mb-4 sm:mb-6' },
+          React.createElement('h2', { className: 'text-2xl sm:text-3xl font-bold', style: { color: goldBrown } }, 'How To Use'),
           React.createElement('button', {
             onClick: () => setShowHowToUse(false),
-            className: 'text-gray-500 hover:text-gray-700 text-2xl'
+            className: 'text-gray-500 hover:text-gray-700 text-3xl leading-none flex-shrink-0 ml-4'
           }, '×')
         ),
         React.createElement('div', { className: 'space-y-4 text-gray-700' },
-          React.createElement('p', { className: 'text-lg' }, 'Welcome to NICUNearby! Follow these simple steps to find NICU hospitals near you:'),
+          React.createElement('p', { className: 'text-base sm:text-lg' }, 'Welcome to NICUNearby! Follow these simple steps to find NICU hospitals near you:'),
           React.createElement('div', { className: 'space-y-4' },
             React.createElement('div', { className: 'flex gap-4' },
               React.createElement('div', {
@@ -277,33 +277,33 @@ export default function NICUFinder() {
       onClick: () => setShowMethod(false)
     },
       React.createElement('div', {
-        className: 'bg-white rounded-2xl max-w-2xl w-full max-h-screen overflow-y-auto p-8',
+        className: 'bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8',
         onClick: (e) => e.stopPropagation()
       },
-        React.createElement('div', { className: 'flex items-center justify-between mb-6' },
-          React.createElement('h2', { className: 'text-3xl font-bold', style: { color: mustardYellow } }, 'Method & Reliability'),
+        React.createElement('div', { className: 'flex items-center justify-between mb-4 sm:mb-6' },
+          React.createElement('h2', { className: 'text-2xl sm:text-3xl font-bold', style: { color: mustardYellow } }, 'Method & Reliability'),
           React.createElement('button', {
             onClick: () => setShowMethod(false),
-            className: 'text-gray-500 hover:text-gray-700 text-2xl'
+            className: 'text-gray-500 hover:text-gray-700 text-3xl leading-none flex-shrink-0 ml-4'
           }, '×')
         ),
         React.createElement('div', { className: 'space-y-4 text-gray-700' },
-          React.createElement('p', { className: 'text-lg' }, 'Our NICU search tool uses reliable, up-to-date data to help you find the best care facilities.'),
-          React.createElement('div', { className: 'space-y-6' },
+          React.createElement('p', { className: 'text-base sm:text-lg' }, 'Our NICU search tool uses reliable, up-to-date data to help you find the best care facilities.'),
+          React.createElement('div', { className: 'space-y-4 sm:space-y-6' },
             React.createElement('div', {},
-              React.createElement('h3', { className: 'font-semibold text-xl mb-2', style: { color: darkTeal } }, 'Data Sources'),
+              React.createElement('h3', { className: 'font-semibold text-lg sm:text-xl mb-2', style: { color: darkTeal } }, 'Data Sources'),
               React.createElement('p', {}, 'We utilize Google Maps Places API to provide comprehensive, real-time information about NICU facilities across the United States.')
             ),
             React.createElement('div', {},
-              React.createElement('h3', { className: 'font-semibold text-xl mb-2', style: { color: darkTeal } }, 'Search Methodology'),
+              React.createElement('h3', { className: 'font-semibold text-lg sm:text-xl mb-2', style: { color: darkTeal } }, 'Search Methodology'),
               React.createElement('p', {}, 'Our search algorithm identifies hospitals with neonatal intensive care units within your specified radius. We calculate distances based on actual driving routes, not straight-line distances.')
             ),
             React.createElement('div', {},
-              React.createElement('h3', { className: 'font-semibold text-xl mb-2', style: { color: darkTeal } }, 'Information Accuracy'),
+              React.createElement('h3', { className: 'font-semibold text-lg sm:text-xl mb-2', style: { color: darkTeal } }, 'Information Accuracy'),
               React.createElement('p', {}, 'All hospital information including addresses, phone numbers, and ratings are sourced directly from verified databases. We recommend calling ahead to confirm specific NICU services and availability.')
             ),
             React.createElement('div', {},
-              React.createElement('h3', { className: 'font-semibold text-xl mb-2', style: { color: darkTeal } }, 'Privacy & Security'),
+              React.createElement('h3', { className: 'font-semibold text-lg sm:text-xl mb-2', style: { color: darkTeal } }, 'Privacy & Security'),
               React.createElement('p', {}, 'Your search queries are not stored or shared. We are committed to protecting your privacy while providing you with the best possible search experience.')
             )
           )
