@@ -46,9 +46,9 @@ export default function NICUFinder() {
     React.createElement('div', { className: 'max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12' },
       React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8' },
         React.createElement('aside', { className: 'md:col-span-4 space-y-4 md:space-y-6 lg:space-y-8' },
-          React.createElement('div', { className: 'text-center' },
+          React.createElement('div', { className: 'hidden md:block text-center' },
             React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-3 md:mb-4' }, 'CREATED FOR'),
-            React.createElement('div', { className: 'bg-white rounded-xl p-4 md:p-6 border border-gray-200 max-w-xs mx-auto md:max-w-none' },
+            React.createElement('div', { className: 'bg-white rounded-xl p-4 md:p-6 border border-gray-200' },
               React.createElement('img', { src: '/alcea-logo.png', alt: 'ALCEA Logo', className: 'w-full h-auto mb-2' }),
               React.createElement('p', { className: 'text-sm font-medium text-gray-500' }, '2025')
             )
@@ -77,7 +77,8 @@ export default function NICUFinder() {
         React.createElement('main', { className: 'md:col-span-8' },
           React.createElement('div', { className: 'mb-6 sm:mb-8' },
             React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-16 sm:h-20 md:h-24 w-auto mb-3 sm:mb-4' }),
-            React.createElement('p', { className: 'text-base sm:text-lg text-gray-600' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
+            React.createElement('p', { className: 'text-xs text-gray-500 border-b border-gray-300 pb-3 mb-4 md:hidden' }, 'Made for Alcea Surrogacy, © RME 2025'),
+            React.createElement('p', { className: 'text-base sm:text-lg text-gray-600 hidden md:block' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
           ),
           React.createElement('div', { className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 lg:p-8 mb-6 md:mb-8' },
             React.createElement('div', { className: 'flex items-center gap-3 mb-4 sm:mb-6' },
