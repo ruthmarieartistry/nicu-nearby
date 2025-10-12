@@ -24,7 +24,7 @@ async function handler(req, res) {
 
   const location = req.query.location;
   const radius = req.query.radius || 60;
-  const apiKey = process.env.GoogleMaps || process.env.GOOGLE_MAPS_API_KEY;
+  const apiKey = process.env.GoogleMaps;
 
   if (!apiKey) return res.status(500).json({ error: "API key not configured" });
   if (!location)
