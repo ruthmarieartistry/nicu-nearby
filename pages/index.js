@@ -143,7 +143,7 @@ export default function NICUFinder() {
                 onChange: (e) => setIncludeDetails(e.target.checked),
                 className: 'h-4 w-4'
               }),
-              React.createElement('label', { htmlFor: 'includeDetails', className: 'text-sm text-gray-700' }, 'Include additional details (phone, website)')
+              React.createElement('label', { htmlFor: 'includeDetails', className: 'text-sm text-gray-700' }, 'Include additional details (phone, website, NICU levels)')
             ),
             React.createElement('button', {
               onClick: handleSearch,

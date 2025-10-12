@@ -121,7 +121,7 @@ async function handler(req, res) {
               item.nicuLevel = 'Level ' + level;
             }
           } catch (err) {
-            // ignore errors in details fetch
+            console.error(`Error fetching details for place ${item.placeId}:`, err.message);
           }
         });
         await Promise.all(batch);
