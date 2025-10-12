@@ -5,7 +5,7 @@ Quick start
 1. Copy a Google API key into `.env.local`:
 
 ```bash
-GOOGLE_MAPS_API_KEY=your_real_api_key_here
+GoogleMaps=your_real_api_key_here
 ```
 
 2. (Optional) Start a local Redis for caching:
@@ -14,9 +14,10 @@ GOOGLE_MAPS_API_KEY=your_real_api_key_here
 docker compose up -d
 export REDIS_URL=redis://127.0.0.1:6379
 ```
+
 5. Update Copilot instructions to mention docker-compose for Redis.
 
-3. Run the Next dev server:
+6. Run the Next dev server:
 
 ```bash
 npm run dev
