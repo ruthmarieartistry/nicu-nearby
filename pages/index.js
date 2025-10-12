@@ -159,7 +159,13 @@ export default function NICUFinder() {
                 className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 hover:shadow-md transition-shadow'
               },
                 React.createElement('div', { className: 'flex items-start justify-between gap-3 mb-3' },
-                  React.createElement('h3', { className: 'text-lg sm:text-xl font-semibold flex-1', style: { color: darkTeal } }, nicu.name),
+                  React.createElement('div', { className: 'flex-1' },
+                    React.createElement('h3', { className: 'text-lg sm:text-xl font-semibold mb-1', style: { color: darkTeal } }, nicu.name),
+                    nicu.nicuLevel && React.createElement('span', {
+                      className: 'inline-block px-2 py-0.5 rounded-md text-xs font-semibold',
+                      style: { backgroundColor: rubyRed, color: 'white' }
+                    }, nicu.nicuLevel)
+                  ),
                   React.createElement('span', {
                     className: 'px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap flex-shrink-0',
                     style: { backgroundColor: mustardYellow + '20', color: goldBrown }

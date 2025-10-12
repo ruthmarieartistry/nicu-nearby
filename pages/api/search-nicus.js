@@ -90,7 +90,7 @@ async function handler(req, res) {
             const detailsUrl =
               'https://maps.googleapis.com/maps/api/place/details/json?place_id=' +
               item.placeId +
-              '&fields=name,formatted_phone_number,formatted_address,website' +
+              '&fields=name,formatted_phone_number,formatted_address,website,editorial_summary,types' +
               '&key=' +
               apiKey;
             const detailsResp = await axios.get(detailsUrl);
@@ -99,6 +99,27 @@ async function handler(req, res) {
             if (details.formatted_phone_number) item.phone = details.formatted_phone_number;
             if (details.formatted_address) item.address = details.formatted_address;
             if (details.website) item.website = details.website;
+
+            // Extract NICU level from various sources
+            const textToScan = [
+              item.name || '',
+              details.name || '',
+              item.address || '',
+              details.formatted_address || '',
+              (details.editorial_summary && details.editorial_summary.overview) || ''
+            ].join(' ');
+
+            // Look for Level IV, III, II, I or numeric levels
+            const levelMatch = textToScan.match(/(?:NICU\s*)?Level\s*(IV|III|II|I|4|3|2|1)(?:\s|,|\.|\)|$)/i);
+            if (levelMatch) {
+              let level = levelMatch[1].toUpperCase();
+              // Convert numeric to Roman numerals for consistency
+              if (level === '1') level = 'I';
+              else if (level === '2') level = 'II';
+              else if (level === '3') level = 'III';
+              else if (level === '4') level = 'IV';
+              item.nicuLevel = 'Level ' + level;
+            }
           } catch (err) {
             // ignore errors in details fetch
           }
