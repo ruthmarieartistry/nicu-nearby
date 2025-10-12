@@ -79,7 +79,50 @@ async function handler(req, res) {
       }
     }
 
-    // Fetch Place Details for complete address information
+    // Always check for NICU level from hospital name (fast, no API calls needed)
+    for (let i = 0; i < preliminary.length; i++) {
+      const item = preliminary[i];
+      const name = item.name.toUpperCase();
+
+      // Look for Level IV, III, II, I or numeric levels in the hospital name
+      const levelMatch = item.name.match(/(?:NICU\s*)?Level\s*(IV|III|II|I|4|3|2|1)(?:\s|,|\.|\)|$)/i);
+      if (levelMatch) {
+        let level = levelMatch[1].toUpperCase();
+        // Convert numeric to Roman numerals for consistency
+        if (level === '1') level = 'I';
+        else if (level === '2') level = 'II';
+        else if (level === '3') level = 'III';
+        else if (level === '4') level = 'IV';
+        item.nicuLevel = 'Level ' + level;
+      } else {
+        // Fallback: Known hospital NICU levels
+        // This is temporary until we integrate with a proper NICU database
+
+        // Level IV NICUs (highest level)
+        if (name.includes('MORGAN STANLEY') ||
+            (name.includes('NYP') && name.includes('CHILDREN')) ||
+            name.includes('CHILDRENS HOSPITAL LOS ANGELES') ||
+            name.includes('STANFORD') && name.includes('CHILDREN') ||
+            name.includes('UCSF') && name.includes('BENIOFF') ||
+            name.includes('UCLA') && name.includes('MATTEL')) {
+          item.nicuLevel = 'Level IV';
+        }
+        // Level III NICUs
+        else if (name.includes('BROOKLYN HOSPITAL CENTER') ||
+                 name.includes('CEDARS-SINAI') ||
+                 name.includes('CEDARS SINAI') ||
+                 name.includes('MOUNT SINAI') ||
+                 name.includes('NYU LANGONE') ||
+                 name.includes('PRESBYTERIAN') ||
+                 name.includes('METHODIST') && name.includes('BROOKLYN') ||
+                 name.includes('COHEN') && name.includes('CHILDREN') ||
+                 name.includes('KAISER')) {
+          item.nicuLevel = 'Level III';
+        }
+      }
+    }
+
+    // Fetch Place Details for complete address information (only if requested)
     const includeDetails = req.query.includeDetails === '1' || process.env.INCLUDE_PLACE_DETAILS === '1' || process.env.INCLUDE_PLACE_DETAILS === 'true';
     const concurrency = 4;
 
@@ -100,49 +143,22 @@ async function handler(req, res) {
             if (details.formatted_address) item.address = details.formatted_address;
             if (details.website) item.website = details.website;
 
-            // Extract NICU level from various sources
-            const textToScan = [
-              item.name || '',
-              details.name || '',
-              item.address || '',
-              details.formatted_address || '',
-              (details.editorial_summary && details.editorial_summary.overview) || ''
-            ].join(' ');
+            // If we don't already have a level, try to extract from editorial summary
+            if (!item.nicuLevel) {
+              const textToScan = [
+                details.name || '',
+                details.formatted_address || '',
+                (details.editorial_summary && details.editorial_summary.overview) || ''
+              ].join(' ');
 
-            // Look for Level IV, III, II, I or numeric levels
-            const levelMatch = textToScan.match(/(?:NICU\s*)?Level\s*(IV|III|II|I|4|3|2|1)(?:\s|,|\.|\)|$)/i);
-            if (levelMatch) {
-              let level = levelMatch[1].toUpperCase();
-              // Convert numeric to Roman numerals for consistency
-              if (level === '1') level = 'I';
-              else if (level === '2') level = 'II';
-              else if (level === '3') level = 'III';
-              else if (level === '4') level = 'IV';
-              item.nicuLevel = 'Level ' + level;
-            } else {
-              // Fallback: Known hospital NICU levels
-              // This is temporary until we integrate with a proper NICU database
-              const name = item.name.toUpperCase();
-
-              // Level IV NICUs (highest level)
-              if (name.includes('MORGAN STANLEY') ||
-                  (name.includes('NYP') && name.includes('CHILDREN')) ||
-                  name.includes('CHILDRENS HOSPITAL LOS ANGELES') ||
-                  name.includes('STANFORD') && name.includes('CHILDREN') ||
-                  name.includes('UCSF') && name.includes('BENIOFF') ||
-                  name.includes('UCLA') && name.includes('MATTEL')) {
-                item.nicuLevel = 'Level IV';
-              }
-              // Level III NICUs
-              else if (name.includes('BROOKLYN HOSPITAL CENTER') ||
-                       name.includes('CEDARS-SINAI') ||
-                       name.includes('CEDARS SINAI') ||
-                       name.includes('MOUNT SINAI') ||
-                       name.includes('NYU LANGONE') ||
-                       name.includes('PRESBYTERIAN') ||
-                       name.includes('METHODIST') && name.includes('BROOKLYN') ||
-                       name.includes('KAISER')) {
-                item.nicuLevel = 'Level III';
+              const levelMatch = textToScan.match(/(?:NICU\s*)?Level\s*(IV|III|II|I|4|3|2|1)(?:\s|,|\.|\)|$)/i);
+              if (levelMatch) {
+                let level = levelMatch[1].toUpperCase();
+                if (level === '1') level = 'I';
+                else if (level === '2') level = 'II';
+                else if (level === '3') level = 'III';
+                else if (level === '4') level = 'IV';
+                item.nicuLevel = 'Level ' + level;
               }
             }
           } catch (err) {

@@ -6,7 +6,7 @@ export default function NICUFinder() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [includeDetails, setIncludeDetails] = useState(true);
+  const [includeDetails, setIncludeDetails] = useState(false);
   const [showHowToUse, setShowHowToUse] = useState(false);
   const [showMethod, setShowMethod] = useState(false);
 
