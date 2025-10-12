@@ -75,10 +75,30 @@ export default function NICUFinder() {
           )
         ),
         React.createElement('main', { className: 'md:col-span-8' },
-          React.createElement('div', { className: 'mb-6 sm:mb-8' },
+          React.createElement('div', { className: 'mb-4 md:mb-6' },
             React.createElement('img', { src: '/nicunearby-logo.png', alt: 'NICU Nearby', className: 'h-16 sm:h-20 md:h-24 w-auto mb-3 sm:mb-4' }),
             React.createElement('p', { className: 'text-xs text-gray-500 border-b border-gray-300 pb-3 mb-4 md:hidden' }, 'Made for Alcea Surrogacy, © RME 2025'),
             React.createElement('p', { className: 'text-base sm:text-lg text-gray-600 hidden md:block' }, 'Search comprehensive, real-time information about NICU facilities across the United States. ')
+          ),
+          React.createElement('div', { className: 'grid grid-cols-2 gap-2 mb-6 md:hidden' },
+            React.createElement('button', {
+              onClick: () => setShowHowToUse(true),
+              className: 'text-left px-3 py-2.5 rounded-xl text-white font-semibold flex items-center gap-2 transition-all hover:opacity-90 text-xs',
+              style: { backgroundColor: goldBrown }
+            },
+              React.createElement('div', { className: 'w-5 h-5 rounded-full border-2 border-white flex items-center justify-center text-sm font-bold flex-shrink-0' }, '?'),
+              React.createElement('span', {}, 'How To Use')
+            ),
+            React.createElement('button', {
+              onClick: () => setShowMethod(true),
+              className: 'text-left px-3 py-2.5 rounded-xl text-white font-semibold flex items-center gap-2 transition-all hover:opacity-90 text-xs',
+              style: { backgroundColor: mustardYellow }
+            },
+              React.createElement('svg', { className: 'w-4 h-4 flex-shrink-0', fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' },
+                React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' })
+              ),
+              React.createElement('span', {}, 'Method')
+            )
           ),
           React.createElement('div', { className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 lg:p-8 mb-6 md:mb-8' },
             React.createElement('div', { className: 'flex items-center gap-3 mb-4 sm:mb-6' },
