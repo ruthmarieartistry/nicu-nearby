@@ -43,9 +43,6 @@ export default function NICUFinder() {
   const darkTeal = '#005567';
 
   return React.createElement('div', { className: 'min-h-screen bg-gray-50' },
-    React.createElement('header', { className: 'bg-white border-b border-gray-200 py-4 px-4 sm:px-6' },
-      React.createElement('div', { className: 'max-w-7xl mx-auto' })
-    ),
     React.createElement('div', { className: 'max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12' },
       React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8' },
         React.createElement('aside', { className: 'md:col-span-4 space-y-4 md:space-y-6 lg:space-y-8' },
