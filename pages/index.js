@@ -48,7 +48,7 @@ export default function NICUFinder() {
         React.createElement('aside', { className: 'md:col-span-4 space-y-4 md:space-y-6 lg:space-y-8' },
           React.createElement('div', { className: 'text-center' },
             React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-3 md:mb-4' }, 'CREATED FOR'),
-            React.createElement('div', { className: 'bg-white rounded-xl p-4 md:p-6 border border-gray-200' },
+            React.createElement('div', { className: 'bg-white rounded-xl p-4 md:p-6 border border-gray-200 max-w-xs mx-auto md:max-w-none' },
               React.createElement('img', { src: '/alcea-logo.png', alt: 'ALCEA Logo', className: 'w-full h-auto mb-2' }),
               React.createElement('p', { className: 'text-sm font-medium text-gray-500' }, '2025')
             )
