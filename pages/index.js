@@ -129,21 +129,10 @@ export default function NICUFinder() {
                 className: 'w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2'
               },
                 React.createElement('option', { value: '20' }, '20 miles'),
-                React.createElement('option', { value: '25' }, '25 miles'),
                 React.createElement('option', { value: '40' }, '40 miles'),
                 React.createElement('option', { value: '60' }, '60 miles'),
                 React.createElement('option', { value: '100' }, '100 miles')
               )
-            ),
-            React.createElement('div', { className: 'mb-4 flex items-center gap-3' },
-              React.createElement('input', {
-                id: 'includeDetails',
-                type: 'checkbox',
-                checked: includeDetails,
-                onChange: (e) => setIncludeDetails(e.target.checked),
-                className: 'h-4 w-4'
-              }),
-              React.createElement('label', { htmlFor: 'includeDetails', className: 'text-sm text-gray-700' }, 'Include additional details (phone, website, NICU levels)')
             ),
             React.createElement('button', {
               onClick: handleSearch,
@@ -179,10 +168,16 @@ export default function NICUFinder() {
                 React.createElement('div', { className: 'flex items-start justify-between gap-3 mb-3' },
                   React.createElement('div', { className: 'flex-1' },
                     React.createElement('h3', { className: 'text-lg sm:text-xl font-semibold mb-1', style: { color: darkTeal } }, nicu.name),
-                    nicu.nicuLevel && React.createElement('span', {
-                      className: 'inline-block px-2 py-0.5 rounded-md text-xs font-semibold',
-                      style: { backgroundColor: rubyRed, color: 'white' }
-                    }, nicu.nicuLevel)
+                    React.createElement('div', { className: 'flex items-center gap-2 flex-wrap' },
+                      nicu.nicuLevel && React.createElement('span', {
+                        className: 'inline-block px-2 py-0.5 rounded-md text-xs font-semibold',
+                        style: { backgroundColor: rubyRed, color: 'white' }
+                      }, nicu.nicuLevel),
+                      nicu.beds && React.createElement('span', {
+                        className: 'inline-block px-2 py-0.5 rounded-md text-xs font-semibold',
+                        style: { backgroundColor: darkTeal + '20', color: darkTeal }
+                      }, nicu.beds + ' Beds')
+                    )
                   ),
                   React.createElement('span', {
                     className: 'px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap flex-shrink-0',
@@ -269,7 +264,7 @@ export default function NICUFinder() {
               }, '2'),
               React.createElement('div', {},
                 React.createElement('h3', { className: 'font-semibold mb-1', style: { color: darkTeal } }, 'Select Search Radius'),
-                React.createElement('p', {}, 'Choose how far you want to search (20, 25, 40, 60, or 100 miles).')
+                React.createElement('p', {}, 'Choose how far you want to search (20, 40, 60, or 100 miles).')
               )
             ),
             React.createElement('div', { className: 'flex gap-4' },
