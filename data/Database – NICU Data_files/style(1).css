@@ -1,0 +1,35 @@
+/*
+	Theme Name:			Skelementor
+	Description:		Ultra-minimal theme designed specifically for Elementor Page Builder and to be as lightweight as possible.
+	Theme URI:			https://mousebuilt.com.au/skelementor-theme/
+	Author:				Mousebuilt (Konker)
+	Author URI:			https://mousebuilt.com.au/
+	Version:			1.1.4
+	Requires at least:	4.9
+	Requires PHP:		7.0
+	Tested up to:		5.7.1
+	License:			GNU General Public License v3 or later.
+	License URI:		https://www.gnu.org/licenses/gpl-3.0.html
+	Tags:				custom-logo, one-column, two-columns, translation-ready
+	Text Domain: 		skelementor
+*/
+
+/*! minimal reset based on simplified normalise.css | github.com/necolas/normalize.css */
+html{line-height:1.15}body{margin:0}h1{font-size:2em;margin:.67em 0}b,strong{font-weight:bolder}pre,code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}fieldset{padding:.35em .75em .625em}progress{vertical-align:baseline}textarea{overflow:auto}template,[hidden]{display:none}
+#copyright{opacity:.7;font-size:small;font-family:sans-serif;text-align:right;margin:.5rem}
+.alignright{float:right}
+.alignleft{float:left}
+.aligncenter{text-align:center}
+.bypostauthor{}
+.gallery-caption{}
+.screen-reader-text{}
+.sticky{}
+.wp-caption{}
+.wp-caption-text{}
+.gallery-item {display: inline-block;text-align: left;vertical-align: top;margin: 0 0 1.5em;padding: 0 1em 0 0;width: 50%}
+.gallery-columns-1 .gallery-item {width: 100%}}
+.gallery-columns-2 .gallery-item {max-width: 50%}
+.gallery-item a { display: inline-block; max-width: 100%}
+.gallery-item a img {display: block; backface-visibility: hidden}
+.gallery-item a:hover img, .gallery-item a:focus img {opacity: 0.6}
+.gallery-caption {display: block; margin-bottom: 0}

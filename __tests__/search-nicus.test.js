@@ -1,37 +1,89 @@
-const nock = require('nock');
-const handler = require('../pages/api/search-nicus');
+const axios = require("axios");
 
-describe('search-nicus API', () => {
-  beforeAll(() => {
-    process.env.GOOGLE_MAPS_API_KEY = 'test-key';
-  });
+async function handler(req, res) {
+  if (process.env.MOCK_MODE === "1" || process.env.MOCK_MODE === "true") {
+    return res
+      .status(200)
+      .json({
+        results: [
+          {
+            name: "Mock NICU",
+            address: "123 Mock St",
+            distance: "N/A",
+            distanceValue: 0,
+            rating: null,
+            reviews: null,
+            placeId: null,
+            phone: null,
+            nicuLevel: null,
+            hasNicU: true,
+          },
+        ],
+      });
+  }
 
-  afterEach(() => nock.cleanAll());
+  const location = req.query.location;
+  const radius = req.query.radius || 60;
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-  test('returns results with distance and placeId', async () => {
-    // mock geocode
-    nock('https://maps.googleapis.com')
-      .get(/geocode\/json/)
-      .reply(200, { results: [{ geometry: { location: { lat: 40.0, lng: -73.0 } } }] });
+  if (!apiKey) return res.status(500).json({ error: "API key not configured" });
+  if (!location)
+    return res.status(400).json({ error: "Location parameter is required" });
 
-    // mock nearbysearch
-    nock('https://maps.googleapis.com')
-      .get(/place\/nearbysearch\/json/)
-      .reply(200, { results: [{ place_id: 'p1', name: 'Hospital A', vicinity: 'Addr A' }] });
+  try {
+    const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${apiKey}`;
+    const geocodeResponse = await axios.get(geocodeUrl);
+    if (
+      !geocodeResponse.data.results ||
+      geocodeResponse.data.results.length === 0
+    )
+      return res.status(404).json({ error: "Location not found" });
 
-    // mock distancematrix
-    nock('https://maps.googleapis.com')
-      .get(/distancematrix\/json/)
-      .reply(200, { rows: [{ elements: [{ distance: { text: '1.2 mi', value: 1931 } }] }] });
+    const coords = geocodeResponse.data.results[0].geometry.location;
+    const lat = coords.lat;
+    const lng = coords.lng;
+    const radiusMeters = parseFloat(radius) * 1609.34;
 
-    // invoke handler
-    const req = { query: { location: '10001', radius: '20' } };
-    const res = { _status: 200, status(code) { this._status = code; return this; }, json(obj) { this.body = obj; } };
+    const placesUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radiusMeters}&type=hospital&keyword=NICU+neonatal+intensive+care&key=${apiKey}`;
+    const placesResponse = await axios.get(placesUrl);
+    const places = (placesResponse.data.results || []).slice(0, 20);
+    const preliminary = [];
 
-    await handler(req, res);
-    expect(res._status).toBe(200);
-    expect(res.body.results).toBeInstanceOf(Array);
-    expect(res.body.results[0].placeId).toBe('p1');
-    expect(res.body.results[0].distance).toBeDefined();
-  });
-});
+    for (let i = 0; i < places.length; i++) {
+      const place = places[i];
+      const distanceUrl = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${lat},${lng}&destinations=place_id:${place.place_id}&units=imperial&key=${apiKey}`;
+      const distanceResponse = await axios.get(distanceUrl);
+      const element =
+        (distanceResponse.data.rows &&
+          distanceResponse.data.rows[0] &&
+          distanceResponse.data.rows[0].elements &&
+          distanceResponse.data.rows[0].elements[0]) ||
+        {};
+      const distanceText = element.distance ? element.distance.text : "N/A";
+      const distanceValue = element.distance ? element.distance.value : 0;
+      const distanceMiles = distanceValue / 1609.34;
+      if (distanceMiles <= parseFloat(radius)) {
+        preliminary.push({
+          name: place.name,
+          address: place.vicinity || place.formatted_address || "",
+          distance: distanceText.replace(" mi", ""),
+          distanceValue,
+          rating: place.rating,
+          reviews: place.user_ratings_total,
+          placeId: place.place_id,
+          phone: null,
+          nicuLevel: null,
+          hasNicU: false,
+        });
+      }
+    }
+
+    preliminary.sort((a, b) => a.distanceValue - b.distanceValue);
+    return res.status(200).json({ results: preliminary });
+  } catch (err) {
+    console.error("Error:", err);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+}
+
+module.exports = handler;

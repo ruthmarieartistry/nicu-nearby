@@ -1,0 +1,266 @@
+{
+  "nicus": [
+    {
+      "name": "Abington - Jefferson Health (used to be Abington Memorial Hospital)",
+      "state": "PA",
+      "county": "Plymouth",
+      "nicuLevel": "Level III",
+      "beds": null
+    },
+    {
+      "name": "PA",
+      "state": "AZ",
+      "county": "",
+      "nicuLevel": "Level III",
+      "beds": null
+    },
+    {
+      "name": "Plymouth",
+      "state": "AZ",
+      "county": "",
+      "nicuLevel": "Level III",
+      "beds": null
+    },
+    {
+      "name": "3",
+      "state": "AZ",
+      "county": "Maricopa",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Abrazo Arrowhead Campus",
+      "state": "AZ",
+      "county": "Maricopa",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "AZ",
+      "state": "AZ",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Maricopa",
+      "state": "AZ",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "2",
+      "state": "AZ",
+      "county": "Maricopa",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Abrazo West Campus",
+      "state": "AZ",
+      "county": "Maricopa",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "AZ",
+      "state": "OH",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Maricopa",
+      "state": "OH",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "2",
+      "state": "OH",
+      "county": "Ross",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Adena Regional Medical Center",
+      "state": "OH",
+      "county": "Ross",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "OH",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Ross",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "2",
+      "state": "FL",
+      "county": "Seminole",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "AdventHealth Altamonte Springs",
+      "state": "FL",
+      "county": "Seminole",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "FL",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Seminole",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "2",
+      "state": "FL",
+      "county": "Osceola",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "AdventHealth Celebration",
+      "state": "FL",
+      "county": "Osceola",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "FL",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Osceola",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "2",
+      "state": "FL",
+      "county": "Volusia",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "AdventHealth Daytona Beach (Florida Memorial Medical Parkway)",
+      "state": "FL",
+      "county": "Volusia",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "FL",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Volusia",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "2",
+      "state": "FL",
+      "county": "Orange",
+      "nicuLevel": "Level III",
+      "beds": null
+    },
+    {
+      "name": "AdventHealth for Children (Advent Health Orlando, formerly Florida Hospital for Children/Florida Hospital)",
+      "state": "FL",
+      "county": "Orange",
+      "nicuLevel": "Level III",
+      "beds": null
+    },
+    {
+      "name": "FL",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level III",
+      "beds": null
+    },
+    {
+      "name": "Orange",
+      "state": "FL",
+      "county": "",
+      "nicuLevel": "Level III",
+      "beds": null
+    },
+    {
+      "name": "3",
+      "state": "FL",
+      "county": "Marion",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "AdventHealth Ocala (Munroe Regional Medical Center)",
+      "state": "FL",
+      "county": "Marion",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "FL",
+      "state": "KS",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "Marion",
+      "state": "KS",
+      "county": "",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "2",
+      "state": "KS",
+      "county": "Franklin",
+      "nicuLevel": "Level II",
+      "beds": null
+    },
+    {
+      "name": "AdventHealth Ottawa",
+      "state": "KS",
+      "county": "Franklin",
+      "nicuLevel": "Level II",
+      "beds": null
+    }
+  ],
+  "total": 37,
+  "source": "nicudata.com",
+  "scraped_at": "2025-10-12"
+}

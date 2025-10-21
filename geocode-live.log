@@ -1,0 +1,151 @@
+/Users/ruthellis/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Loading database...
+Total: 1597, Need geocoding: 1174
+[10/1174] Wellstar Atlanta Medical Center South -> 33.6803,-84.4269
+[20/1174] Eastern Idaho Regional Medical Center -> 43.4701,-111.9915
+[30/1174] AMITA Health Adventist Medical Center Bo -> 41.6986,-88.0684
+[40/1174] Advocate Good Shepherd -> 42.1346,-88.1354
+[50/1174] Centegra McHenry Hospital -> 42.3182,-88.2795
+Saving progress...
+[60/1174] HSHS St. John's Children's Hospital -> 39.1200,-88.5434
+[70/1174] MercyHealth - Javon Bea Hospital -> 42.2980,-89.0992
+[80/1174] Riverside Medical Center Kankakee -> 41.1240,-87.8831
+[90/1174] Stroger Hospital of Cook County -> 41.8727,-87.6737
+[100/1174] Clark Memorial Health -> 38.2812,-85.7493
+Saving progress...
+[110/1174] Dupont Hospital Fort Wayne -> 41.1753,-85.1090
+[120/1174] Hendricks Regional Health -> 39.7625,-86.5025
+[130/1174] Parkview Regional Medical Center -> 41.1861,-85.1015
+[140/1174] St. Vincent Evansville -> 37.9651,-87.5045
+[150/1174] St. Luke's Regional Medical Center -> 42.5195,-96.4060
+Saving progress...
+[160/1174] Hays Medical Center -> 38.8801,-99.2960
+[170/1174] St. Luke's South Hospital -> 38.9041,-94.6694
+[180/1174] Baptist Hospital Louisville (Baptist Hea -> 38.2379,-85.6391
+[190/1174] Methodist Hospital -> 37.8543,-87.5821
+[200/1174] University of Kentucky Children’s Hospit -> 38.0307,-84.5082
+Saving progress...
+[210/1174] Lakeview Regional Medical Center Hospita -> 30.4111,-90.0807
+[220/1174] Slidell Memorial Hospital -> 30.2838,-89.7703
+[230/1174] Women's & Children's Hospital (Our Lady  -> 30.1502,-92.0364
+[240/1174] Greater Baltimore Medical Center -> 39.3917,-76.6240
+[250/1174] Montgomery General Hospital -> 39.1538,-77.0552
+Saving progress...
+[260/1174] St. Joseph Medical Center -> 39.3885,-76.6116
+[270/1174] Beth Israel Deaconess Medical Center -> 42.3398,-71.1048
+[280/1174] Holy Family Hospital -> 42.8048,-70.8585
+[290/1174] Saint Vincent Hospital -> 42.2650,-71.7966
+[300/1174] Winchester Hospital -> 42.4660,-71.1225
+Saving progress...
+[310/1174] Children's Hospital of Michigan (Wayne S -> 42.3544,-83.0556
+[320/1174] Henry Ford Wyandotte Hospital -> 42.2102,-83.1481
+[330/1174] Michigan Medicine, C.S. Mott Children's  -> 42.2819,-83.7282
+[340/1174] Childrens Hospital of Minnesota-St. Paul -> 44.9419,-93.1088
+[350/1174] Methodist Hospital -> 44.9301,-93.3619
+Saving progress...
+[360/1174] Mississippi Baptist Medical Center -> 32.3151,-90.1795
+[370/1174] Boone Hospital -> 38.9608,-92.2508
+[380/1174] Mercy Hospital Joplin -> 37.0368,-94.5092
+[390/1174] SSM Health DePaul Hospital -> 38.7511,-90.4340
+[400/1174] St. Luke's Hospital of Kansas City (crit -> 39.0487,-94.5908
+Saving progress...
+[410/1174] St. Vincent Health Care Billings, MT -> 45.7775,-108.5665
+[420/1174] Great Plains Health -> 41.1214,-100.7711
+[430/1174] Henderson Hospital -> 36.0728,-115.0304
+[440/1174] St. Rose Dominican – Siena -> 36.0042,-115.1150
+[450/1174] Wentworth-Douglass Hospital -> 43.2132,-70.8742
+Saving progress...
+[460/1174] Community Medical Center -> 39.9643,-74.2158
+[470/1174] JFK Medical Center -> 40.5570,-74.3500
+[480/1174] Newark Beth Israel Medical Center -> 40.7100,-74.2125
+[490/1174] Rutgers University Hospital -> 40.5018,-74.4479
+[500/1174] The Valley Hospital -> 40.9650,-74.0717
+Saving progress...
+[510/1174] Lovelace Women’s Hospital -> 35.1319,-106.5907
+[520/1174] Bernard and Millie Duker Children's Hosp -> 42.6531,-73.7761
+[530/1174] Ellis Hospital -> 40.6991,-74.0396
+[540/1174] Huntington Hospital -> 40.8794,-73.4163
+[550/1174] Lutheran Medical Center -> 40.6466,-74.0207
+Saving progress...
+[560/1174] Montefiore Medical Center/Weiler Hospita -> 40.8487,-73.8465
+[570/1174] NYU Winthrop Hospital -> 40.7408,-73.6431
+[580/1174] NewYork-Presbyterian Brooklyn Methodist  -> 40.6685,-73.9798
+[590/1174] Northwell Health Plainview Hospital -> 40.7750,-73.4789
+[600/1174] South Nassau Communities Hospital -> 40.6518,-73.6305
+Saving progress...
+[610/1174] St. Joseph's Hospital Health Center -> 43.2994,-74.2179
+[620/1174] United Health Services Hospital - Wilson -> 42.1792,-75.8534
+[630/1174] university Rochester medical center/goli -> 43.1221,-77.6234
+[640/1174] Carolinas Blue Ridge -> 35.3510,-82.3626
+[650/1174] Jeff Gordon Children's Hospital -> 35.4363,-80.6020
+Saving progress...
+[660/1174] Novant Health Matthews Medical Center -> 35.1198,-80.7146
+[670/1174] University of North Carolina Hospitals -> 35.9040,-79.0515
+[680/1174] Medcenter One (Sandford Health) -> 46.8377,-100.7944
+[690/1174] Bethesda North Hospital -> 39.2517,-84.3414
+[700/1174] Hillcrest Hospital -> 41.5190,-81.4353
+Saving progress...
+[710/1174] MetroHealth Medical Center -> 41.4608,-81.6989
+[720/1174] Rainbow Babies and Children's Hospital -> 41.5040,-81.6060
+[730/1174] The christ hospital -> 39.1211,-84.5103
+[740/1174] Integris Health Enid Hospital -> 36.3900,-97.8877
+FAILED: St. Anthony Hospital
+[750/1174] comanche county memorial hospital -> 34.6098,-98.4351
+Saving progress...
+[760/1174] Providence St. Vincent Medical Center -> 45.5103,-122.7720
+[770/1174] Children's Hospital of Philadelphia -> 39.9487,-75.1939
+[780/1174] Geisinger Medical Center - Janet Weis Ch -> 40.9674,-76.6041
+[790/1174] Moses Taylor Hospital -> 41.4107,-75.6505
+[800/1174] St. Luke's Allentown Campus -> 40.5960,-75.4930
+Saving progress...
+FAILED: UPMC Children's Hospital of Pittsburgh
+[810/1174] UPMC Pinnacle Lititz -> 40.0408,-76.3213
+[820/1174] Baptist Easley Hospital -> 34.8406,-82.6068
+FAILED: Childrens Hospital, Greenville, Memorial Hospital (prisma)
+[830/1174] Prisma Health Children's Hospital - Midl -> 34.0279,-81.0320
+[840/1174] Rapid City Regional Hospital -> 44.0574,-103.2253
+[850/1174] Hendersonville Medical Center -> 36.3253,-86.6218
+Saving progress...
+[860/1174] Middle Tennessee Medical Center (St. Tho -> 35.8610,-86.4252
+[870/1174] St. Francis Hospital, Memphis -> 35.0973,-89.8644
+[880/1174] Williamson Medical Center -> 35.9165,-86.8202
+[890/1174] Baylor Scott & White Medical Center - La -> 30.3320,-97.9713
+[900/1174] CHI St. Luke’s Health – The Woodlands Ho -> 30.2059,-95.4586
+Saving progress...
+[910/1174] Christus St. Michael Hospital -> 33.4639,-94.0756
+[920/1174] Driscoll Children's Hospital -> 27.7489,-97.3864
+[930/1174] Houston Methodist Baytown Hospital -> 29.7684,-94.9796
+[940/1174] Longview Regional Medical Center -> 32.5331,-94.7299
+[950/1174] Medical City McKinney -> 33.1603,-96.6371
+Saving progress...
+[960/1174] Memorial Hermann Sugar Land Hospital -> 29.5645,-95.6903
+[970/1174] Mission Regional Medical Center -> 26.1964,-98.3143
+[980/1174] Presbyterian Hospital of Allen -> 33.1161,-96.6735
+[990/1174] Southwest General Hospital -> 29.3534,-98.5451
+[1000/1174] Texas Children's The Woodlands -> 30.2013,-95.4575
+Saving progress...
+[1010/1174] The Woman’s Hospital of Texas -> 29.6933,-95.4026
+[1020/1174] Valley Regional Medical center -> 25.9781,-97.5145
+[1030/1174] Davis Hospital & Medical Center -> 41.0910,-111.9957
+[1040/1174] Logan Regional Hospital -> 41.7556,-111.8215
+[1050/1174] Timpanogos Regional Medical Center -> 40.3132,-111.7138
+Saving progress...
+[1060/1174] Carilion Roanoke Memorial Hospital -> 37.2513,-79.9417
+[1070/1174] Inova Loudoun Hospital -> 39.0729,-77.4788
+[1080/1174] Sentara Northern Virginia Medical Center -> 38.6367,-77.2857
+[1090/1174] Virginia Baptist Hospital -> 37.4380,-79.1880
+[1100/1174] MultiCare Good Samaritan Hospital -> 47.1786,-122.2898
+Saving progress...
+[1110/1174] Providence St. Peter Hospital -> 47.0522,-122.8476
+[1120/1174] Swedish Medical Center, Ballard Campus -> 47.6675,-122.3796
+[1130/1174] West Virginia University Medicine Childr -> 39.6539,-79.9579
+[1140/1174] Aspirus Wausau Hospital -> 44.9663,-89.6687
+[1150/1174] Beloit Health System -> 42.5487,-89.0083
+Saving progress...
+[1160/1174] ProHealth - Oconomowoc Memorial Hospital -> 43.1000,-88.4867
+[1170/1174] Sweetwater Memorial - Rock Springs -> 41.5843,-109.2362
+
+Saving final...
+
+DONE! Geocoded: 1171, Failed: 3
