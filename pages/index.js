@@ -42,7 +42,7 @@ export default function NICUFinder() {
   const goldBrown = '#a5630b';
   const darkTeal = '#005567';
 
-  return React.createElement('div', { className: 'min-h-screen bg-gray-50' },
+  return React.createElement('div', { className: 'min-h-screen bg-white' },
     React.createElement('div', { className: 'max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12' },
       React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8' },
         React.createElement('aside', { className: 'md:col-span-3 space-y-4 md:space-y-6 lg:space-y-8' },
@@ -327,6 +327,9 @@ export default function NICUFinder() {
             )
           )
         )
+      ),
+      React.createElement('div', { className: 'text-right text-sm text-gray-500 mt-4 px-4' },
+        'Made for Alcea Surrogacy © 2025 Ruth Ellis'
       )
     )
   );
