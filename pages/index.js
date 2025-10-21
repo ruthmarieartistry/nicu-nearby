@@ -47,7 +47,7 @@ export default function NICUFinder() {
       React.createElement('div', { className: 'grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8' },
         React.createElement('aside', { className: 'md:col-span-3 space-y-4 md:space-y-6 lg:space-y-8' },
           React.createElement('div', { className: 'hidden md:block' },
-            React.createElement('div', { className: 'bg-white rounded-xl p-3 border border-gray-200 text-center' },
+            React.createElement('div', { className: 'p-3 text-center' },
               React.createElement('p', { className: 'text-xs font-semibold text-gray-400 tracking-widest mb-2' }, 'CREATED FOR'),
               React.createElement('img', { src: '/alcea-logo.png', alt: 'ALCEA Logo', className: 'w-full h-auto mb-2' }),
               React.createElement('p', { className: 'text-xs font-medium text-gray-500' }, '© RME 2025')
@@ -100,7 +100,7 @@ export default function NICUFinder() {
               React.createElement('span', {}, 'Method')
             )
           ),
-          React.createElement('div', { className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6 lg:p-8 mb-6 md:mb-8' },
+          React.createElement('div', { className: 'p-4 md:p-6 lg:p-8 mb-6 md:mb-8' },
             React.createElement('div', { className: 'flex items-center gap-3 mb-4 sm:mb-6' },
               React.createElement('div', { className: 'w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0', style: { backgroundColor: rubyRed + '20' } },
                 React.createElement('svg', { className: 'w-5 h-5 sm:w-6 sm:h-6', style: { color: rubyRed }, fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' },
@@ -163,7 +163,7 @@ export default function NICUFinder() {
             results.map((nicu, index) =>
               React.createElement('div', {
                 key: index,
-                className: 'bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 hover:shadow-md transition-shadow'
+                className: 'p-4 sm:p-6 border-b border-gray-100'
               },
                 React.createElement('div', { className: 'flex items-start justify-between gap-3 mb-3' },
                   React.createElement('div', { className: 'flex-1' },
