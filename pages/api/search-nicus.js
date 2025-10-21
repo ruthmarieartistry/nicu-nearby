@@ -1,8 +1,17 @@
-export const runtime = 'edge';
+import axios from "axios";
+import fs from "fs";
+import path from "path";
 
-// Import database directly (works in Edge Runtime)
-import nicuDatabaseImport from '../../data/nicu-database.json';
-const nicuDatabase = nicuDatabaseImport;
+// Load NICU database
+let nicuDatabase = null;
+try {
+  const dbPath = path.join(process.cwd(), 'data', 'nicu-database.json');
+  const dbData = fs.readFileSync(dbPath, 'utf8');
+  nicuDatabase = JSON.parse(dbData);
+  console.log(`Loaded NICU database with ${nicuDatabase.total} entries`);
+} catch (err) {
+  console.error('Failed to load NICU database:', err.message);
+}
 
 // Calculate distance between two points using Haversine formula
 function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -119,8 +128,7 @@ async function handler(req, res) {
 
     try {
       const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${apiKey}`;
-      const geocodeRes = await fetch(geocodeUrl);
-      geocodeResponse = { data: await geocodeRes.json() };
+      geocodeResponse = await axios.get(geocodeUrl);
 
       if (
         geocodeResponse.data.results &&
@@ -148,17 +156,16 @@ async function handler(req, res) {
         // Add USA to zip codes to avoid international conflicts
         const searchQuery = /^\d{5}(-\d{4})?$/.test(location.trim()) ? `${location} USA` : location;
         const nominatimUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}&limit=1`;
-        const nominatimRes = await fetch(nominatimUrl, {
+        const nominatimResponse = await axios.get(nominatimUrl, {
           headers: {
             'User-Agent': 'NICU-Finder-App/1.0'
           }
         });
-        const nominatimData = await nominatimRes.json();
 
-        if (nominatimData && nominatimData.length > 0) {
+        if (nominatimResponse.data && nominatimResponse.data.length > 0) {
           coords = {
-            lat: parseFloat(nominatimData[0].lat),
-            lng: parseFloat(nominatimData[0].lon)
+            lat: parseFloat(nominatimResponse.data[0].lat),
+            lng: parseFloat(nominatimResponse.data[0].lon)
           };
           console.log("Fallback geocoding successful:", coords, "for", searchQuery);
         } else {
@@ -190,13 +197,12 @@ async function handler(req, res) {
       // Try Google Distance Matrix API first
       try {
         const distanceUrl = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${lat},${lng}&destinations=place_id:${place.place_id}&units=imperial&key=${apiKey}`;
-        const distanceRes = await fetch(distanceUrl);
-        const distanceData = await distanceRes.json();
+        const distanceResponse = await axios.get(distanceUrl);
         const element =
-          (distanceData.rows &&
-            distanceData.rows[0] &&
-            distanceData.rows[0].elements &&
-            distanceData.rows[0].elements[0]) ||
+          (distanceResponse.data.rows &&
+            distanceResponse.data.rows[0] &&
+            distanceResponse.data.rows[0].elements &&
+            distanceResponse.data.rows[0].elements[0]) ||
           {};
 
         if (element.distance) {
